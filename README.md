@@ -9,30 +9,26 @@ java -jar MaRA.jar input.csv thr(s) -s "," -n "?" -head false -o log_folder -r r
 
 **thr(s):** numeric value OR space-separated list of numeric values. In the case of a list, each value is associated by position to the respective column of the dataset. The total number of values must be equal to the number of columns in the dataset.
 
-**-s:** CSV separator, DEFAULT:","
+**-s:** allows to define the separation character of the data in the CSV file. Default (char/s): ",".
 
-**-n:** Char to be considered as NULL value ("blank" OR "" can be used for empty char)
+**-n:** allows to define the character which represents a missing value (char/s). Default: unset.
 
-**-head:** If true, the first line of the dataset is considered as header, DEFAULT: true
+**-head:** indicates the presence or absence of the header in the file. Default (boolean): "true".
 
-**-o:** Output log folder, DEFAULT:"log"
+**-o:** allows to define the folder in which the execution log file will be saved. Default (path): "./log"
 
-**-r:** Output result folder, DEFAULT:false
+**-r:** allows to define the folder in which the discovered \rfdcs will be saved. Default (path): "./res".
 
-**-pd:** Parallel discovery
+**-pd:** indicate if the lattice discovery will be executed in parallel mode (single-thread instead). Default (boolean): "True". 
 
-**-tl:** Time limit in seconds
+**-tl:** allow to set the Time Limit for the execution of ASPS computation and discovery phase. Default (seconds): unset.
 
+**-sp:** indicate if the partitions are stored during the computation of the ASPS, in order to speed up the process, but using more memory. Default (boolean): "True".
 
 
 java -jar MaRA.jar input.csv 1 -s "," -n "?" -head false -o log_folder -r res_folder -pd "true" -tl 3600
 
 java -jar MaRA.jar input.csv 1 2 3 4 5 -s ";" -n "blank" -head true -o log_folder -r res_folder -pd "true" -tl 3600 (For a dataset with 5 columns)
-
-
-
-
-
 
 
 ## Dataset sources
